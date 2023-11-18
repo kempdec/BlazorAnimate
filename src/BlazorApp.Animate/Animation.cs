@@ -25,9 +25,9 @@ public static class Animation
     public static FadeInRightAnimation FadeInRight { get; } = new();
 
     /// <summary>
-    /// Obtém um <see cref="IAnimation"/> que representa a animação de aparecimento gradual para cima (Fade in Bottom).
+    /// Obtém um <see cref="IAnimation"/> que representa a animação de aparecimento gradual para cima (Fade in Down).
     /// </summary>
-    public static FadeInBottomAnimation FadeInBottom { get; } = new();
+    public static FadeInDownAnimation FadeInDown { get; } = new();
 
     /// <summary>
     /// Obtém um <see cref="IAnimation"/> que representa a animação de aparecimento gradual para cima (Fade in Left).
@@ -51,9 +51,9 @@ public static class Animation
 
     /// <summary>
     /// Obtém um <see cref="IAnimation"/> que representa a animação de aparecimento deslizante para baixo (Slide in
-    /// Bottom).
+    /// Down).
     /// </summary>
-    public static SlideInBottomAnimation SlideInBottom { get; } = new();
+    public static SlideInDownAnimation SlideInDown { get; } = new();
 
     /// <summary>
     /// Obtém um <see cref="IAnimation"/> que representa a animação de aparecimento deslizante para a esquerda (Slide

@@ -1,9 +1,9 @@
 ﻿namespace BlazorApp.Animate.Animations;
 
 /// <summary>
-/// Representa a animação de aparecimento deslizante para baixo (Slide in Bottom).
+/// Representa a animação de aparecimento deslizante para baixo (Slide in Down).
 /// </summary>
-/// <remarks>Inicializa uma nova instância de <see cref="SlideInBottomAnimation"/>.</remarks>
-public sealed class SlideInBottomAnimation() : AnimationBase("slide-in-bottom")
+/// <remarks>Inicializa uma nova instância de <see cref="SlideInDownAnimation"/>.</remarks>
+public sealed class SlideInDownAnimation() : AnimationBase("slide-in-down")
 {
 }
