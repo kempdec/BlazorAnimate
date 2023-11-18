@@ -35,10 +35,24 @@ public partial class Animate
     public TimeSpan? Delay { get; init; }
 
     /// <summary>
+    /// Obtém ou inicializa o atraso (em segundos) para iniciar a animação.
+    /// </summary>
+    /// <remarks>Essa propriedade é ignorada quando <see cref="Delay"/> for especificada.</remarks>
+    [Parameter]
+    public double? DelayS { get; init; }
+
+    /// <summary>
     /// Obtém ou inicializa a duração da animação.
     /// </summary>
     [Parameter]
     public TimeSpan? Duration { get; init; }
+
+    /// <summary>
+    /// Obtém ou inicializa a duração (em segundos) da animação.
+    /// </summary>
+    /// <remarks>Essa propriedade é ignorada quando <see cref="Duration"/> for especificada.</remarks>
+    [Parameter]
+    public double? DurationS { get; init; }
 
     /// <summary>
     /// Obtém ou inicializa o modo de preenchimento que define como os estilos são aplicados antes e depois da execução
@@ -56,7 +70,13 @@ public partial class Animate
 
     protected override void OnParametersSet()
     {
-        var animation = new MutantAnimation(Animation, Duration, TimingFunction, Delay, FillMode);
+        TimeSpan? duration = Duration;
+        TimeSpan? delay = Delay;
+
+        duration ??= DurationS is double durationS ? TimeSpan.FromSeconds(durationS) : null;
+        delay ??= DelayS is double delayS ? TimeSpan.FromSeconds(delayS) : null;
+
+        var animation = new MutantAnimation(Animation, duration, TimingFunction, delay, FillMode);
 
         string? styles = AdditionalAttributes.GetValueOrDefault("style") as string;
 
