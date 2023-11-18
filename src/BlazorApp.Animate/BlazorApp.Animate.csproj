@@ -16,6 +16,7 @@
     <Title>BlazorApp Animate</Title>
     <Product>BlazorApp Animate</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.0-rc.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
