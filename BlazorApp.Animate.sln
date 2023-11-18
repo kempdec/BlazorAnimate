@@ -10,7 +10,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Animate", "src\BlazorApp.Animate\BlazorApp.Animate.csproj", "{189BCD00-5D74-463B-BA58-169B02C1F700}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
