@@ -1,4 +1,5 @@
 using BlazorApp.Animate.Extensions;
+using BlazorApp.Animate.Helpers;
 using BlazorApp.Animate.Options;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Options;
@@ -16,6 +17,14 @@ public partial class Animate
     /// </summary>
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> AdditionalAttributes { get; init; } = [];
+
+    /// <summary>
+    /// Obtém ou define um sinalizador indicando se a animação deve ser executada somente depois da pré-renderização.
+    /// O valor padrão é <see langword="false"/>.
+    /// </summary>
+    /// <remarks>Essa propriedade adicionará o estilo CSS "opacity: 0" ao componente.</remarks>
+    [Parameter]
+    public bool AfterPreRenderOnly { get; set; }
 
     /// <summary>
     /// Obtém ou inicializa um <see cref="IAnimation"/> que representa a animação do componente.
@@ -86,10 +95,62 @@ public partial class Animate
     /// <inheritdoc/>
     protected override void OnParametersSet()
     {
+        if (AfterPreRenderOnly)
+        {
+            ToHide();
+        }
+        else
+        {
+            SetAnimationStyle();
+        }
+    }
+
+    /// <inheritdoc/>
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!AfterPreRenderOnly)
+        {
+            return;
+        }
+
+        AfterPreRenderOnly = false;
+
+        SetAnimationStyle();
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Obtém uma coleção de propriedades de estilo CSS do componente.
+    /// </summary>
+    private StyleDictionary GetStyles() => new(AdditionalAttributes.GetValueOrDefault("style"));
+
+    /// <summary>
+    /// Remove o estilo CSS no atributo "style" do componente.
+    /// </summary>
+    /// <param name="style">O estilo CSS a ser removido.</param>
+    private void RemoveStyle(string style)
+    {
+        StyleDictionary styles = GetStyles();
+
+        styles.Remove(style);
+
+        AdditionalAttributes["style"] = styles.ToString();
+    }
+
+    /// <summary>
+    /// Remove o estilo que esconde o componente de animação.
+    /// </summary>
+    private void RemoveToHide() => RemoveStyle("opacity");
+
+    /// <summary>
+    /// Define o atributo "style" do componente com as propriedades de estilo CSS de animação.
+    /// </summary>
+    private void SetAnimationStyle()
+    {
         TimeSpan? duration = Duration
-            ?? DurationS.ToSecondsTimeSpan()
-            ?? Options?.Duration
-            ?? DefaultOptions?.Value.Duration;
+                    ?? DurationS.ToSecondsTimeSpan()
+                    ?? Options?.Duration
+                    ?? DefaultOptions?.Value.Duration;
 
         ITimingFunction? timingFunction = TimingFunction
             ?? Options?.TimingFunction
@@ -106,8 +167,40 @@ public partial class Animate
 
         var animation = new MutantAnimation(Animation, duration, timingFunction, delay, fillMode);
 
-        string? styles = AdditionalAttributes.GetValueOrDefault("style") as string;
-
-        AdditionalAttributes["style"] = $"{animation} {styles}";
+        SetStyles(animation.GetStyles());
     }
+
+    /// <summary>
+    /// Define o estilo CSS no atributo "style" do componente.
+    /// </summary>
+    /// <param name="styles">Os estilos CSS a serem definidos.</param>
+    private void SetStyles(StyleDictionary styles)
+    {
+        StyleDictionary currentStyles = GetStyles();
+
+        foreach (KeyValuePair<string, string> style in styles)
+        {
+            currentStyles.Set(style.Key, style.Value);
+        }
+
+        AdditionalAttributes["style"] = styles.ToString();
+    }
+
+    /// <summary>
+    /// Define o estilo CSS no atributo "style" do componente.
+    /// </summary>
+    /// <param name="style">O estilo CSS a ser definido.</param>
+    private void SetStyle(string? style)
+    {
+        StyleDictionary styles = GetStyles();
+
+        styles.Set(style);
+
+        AdditionalAttributes["style"] = styles.ToString();
+    }
+
+    /// <summary>
+    /// Adiciona o estilo que esconde o componente de animação.
+    /// </summary>
+    private void ToHide() => SetStyle("opacity:0");
 }

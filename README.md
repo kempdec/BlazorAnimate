@@ -88,6 +88,11 @@ Coloque o conteúdo que você deseja animar dentro do componente `<Animate>`, se
 <Animate class="example-class" style="font-weight: bold;">
     Texto animado em negrito.
 </Animate>
+
+@* É possível definir que a animação seja executada somente após a pré-renderização. *@
+<Animate AfterPreRenderOnly="true">
+    Texto animado que aparecerá somente após a pré-renderização.
+</Animate>
 ```
 
 ### Método extensivo

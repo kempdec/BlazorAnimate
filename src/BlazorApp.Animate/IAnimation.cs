@@ -1,4 +1,6 @@
-﻿namespace BlazorApp.Animate;
+﻿using BlazorApp.Animate.Helpers;
+
+namespace BlazorApp.Animate;
 
 /// <summary>
 /// Fornece abstração para uma animação.
@@ -37,8 +39,8 @@ public interface IAnimation
     public bool IsDefault { get; }
 
     /// <summary>
-    /// Obtém as propriedades de estilo CSS da animação.
+    /// Obtém uma coleção de propriedades de estilo CSS da animação.
     /// </summary>
-    /// <returns>As propriedades de estilo CSS da animação.</returns>
-    public string GetStyle();
+    /// <returns>Uma coleção de propriedades de estilo CSS da animação.</returns>
+    public StyleDictionary GetStyles();
 }

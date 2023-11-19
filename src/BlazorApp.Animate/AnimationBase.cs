@@ -1,7 +1,7 @@
-﻿using static BlazorApp.Animate.TimingFunction;
-using static BlazorApp.Animate.FillMode;
-using System.Text;
+﻿using BlazorApp.Animate.Helpers;
 using System.Globalization;
+using static BlazorApp.Animate.FillMode;
+using static BlazorApp.Animate.TimingFunction;
 
 namespace BlazorApp.Animate;
 
@@ -78,23 +78,25 @@ public abstract class AnimationBase : IAnimation
     public bool IsDefault { get; }
 
     /// <inheritdoc/>
-    public override string ToString() => GetStyle();
+    public override string ToString() => GetStyles().ToString();
 
     /// <inheritdoc/>
-    public string GetStyle()
+    public StyleDictionary GetStyles()
     {
-        var styleBuilder = new StringBuilder();
         var culture = CultureInfo.GetCultureInfo("en-US");
 
         string durationSeconds = Duration.TotalSeconds.ToString(culture);
         string delaySeconds = Delay.TotalSeconds.ToString(culture);
 
-        styleBuilder.Append($"animation-name: {Name};");
-        styleBuilder.Append($"animation-duration: {durationSeconds}s;");
-        styleBuilder.Append($"animation-timing-function: {TimingFunction.Value};");
-        styleBuilder.Append($"animation-delay: {delaySeconds}s;");
-        styleBuilder.Append($"animation-fill-mode: {FillMode.Value};");
+        var styles = new StyleDictionary
+        {
+            { "animation-name", Name },
+            { "animation-duration", $"{durationSeconds}s" },
+            { "animation-timing-function", TimingFunction.Value },
+            { "animation-delay", $"{delaySeconds}s" },
+            { "animation-fill-mode", FillMode.Value }
+        };
 
-        return styleBuilder.ToString();
+        return styles;
     }
 }
