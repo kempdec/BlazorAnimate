@@ -13,7 +13,9 @@ O BlazorApp Animate é uma pequena biblioteca para adicionar facilmente animaç�
 - [Animações disponíveis](#animações-disponíveis)
 - [Funções de temporização disponíveis](#funções-de-temporização-disponíveis)
 - [Modos de preenchimento disponíveis](#modos-de-preenchimento-disponíveis)
-- [Como criar animações personalizadas ou mutáveis](#como-criar-animações-personalizadas-ou-mutáveis)
+- [Configurando as opções padrão](#configurando-as-opções-padrões)
+- [Configurando opções pré-construídas](#configurando-opções-pré-construídas)
+- [Como criar animações personalizadas](#como-criar-animações-personalizadas)
 - [Autores](#autores)
 - [Notas de lançamento](#notas-de-lançamento)
 - [Licença](#licença)
@@ -75,7 +77,7 @@ Coloque o conteúdo que você deseja animar dentro do componente `<Animate>`, se
 </Animate>
 
 @* Componente com todos os parâmetros (TimeSpan). Esses são os valores padrões, quando não especificados. *@
-<Animate Animation="FadeIn" Duration="TimeSpan.FromSeconds(0.4)" TimingFunction="EaseInOut" Delay="TimeSpan.FromSeconds(0.0)" FillMode="Both">
+<Animate Animation="FadeIn" Duration="TimeSpan.FromSeconds(0.4)" TimingFunction="EaseInOut" Delay="TimeSpan.Zero" FillMode="Both">
     <p>
         Parágrafo que será animado.
     </p>
@@ -90,7 +92,7 @@ Coloque o conteúdo que você deseja animar dentro do componente `<Animate>`, se
 ### Método extensivo
 
 Os exemplos abaixo tem um resultado equivalente ao uso com o componente `<Animate/>`, então escolha o que preferir.
-Coloque a animação no atributo "style" de qualquer tag e use o método extensivo `.With` para personalizar os parâmetros.
+Coloque a animação no atributo "style" de qualquer tag e use o método extensivo `.With()` para personalizar os parâmetros.
 
 ``` razor
 @* Aplicando a animação FadeIn em um elemento HTML. *@
@@ -110,7 +112,7 @@ quando não especificados. *@
 </p>
 
 @* Animação com todos os parâmetros (TimeSpan). Esses são os valores padrões, quando não especificados. *@
-<p style="@FadeIn.With(TimeSpan.FromSeconds(0.4), EaseInOut, TimeSpan.FromSeconds(0.0), Both)">
+<p style="@FadeIn.With(TimeSpan.FromSeconds(0.4), EaseInOut, TimeSpan.Zero, Both)">
     Parágrafo que será animado.
 </p>
 
@@ -160,7 +162,63 @@ Os modos de preenchimento estão pré-construídas em `BlazorApp.Animate.FillMod
 - Backwards
 - Both
 
-## Como criar animações personalizadas ou mutáveis
+## Configurando as opções padrão
+
+É possível definir as opções padrão de animação para serem utilizadas no componente `<Animate/>` ou com o método
+extensivo `.With()`, em seu `Program.cs` configure de maneira semelhante a abaixo:
+
+``` csharp
+builder.Services.Configure<AnimationOptions>(options =>
+{
+    options.Duration = TimeSpan.FromSeconds(0.4);
+    options.TimingFunction = TimingFunction.EaseInOut;
+    options.Delay = TimeSpan.Zero;
+    options.FillMode = FillMode.Both;
+});
+```
+
+E então utilize:
+
+``` razor
+@* Não é necessário fazer mais nada para as opções padrão serem aplicadas ao componente. *@
+<Animate></Animate>
+
+@* É necessário especificar as opções no método extensivo. *@
+@inject IOptionsSnapshot<AnimaitonOptions> options
+
+<div style="@FadeIn.With(options)"></div>
+```
+
+## Configurando opções pré-construídas
+
+É possível definir opções de animação pré-construídas para serem aplicadas ao componente `<Animate/>` ou método
+extensivo `.With()`.
+
+``` csharp
+public static AnimationOpts
+{
+    public static AnimationOptions My { get; } = new()
+    {
+        Duration = TimeSpan.FromSeconds(0.4),
+        TimingFunction = TimingFunction.EaseInOut,
+        Delay = TimeSpan.Zero,
+        FillMode = FillMode.Both
+    };
+}
+```
+
+E então é possível utilizar da seguinte maneira:
+
+``` razor
+@* Especificar em componentes. *@
+<Animate Options="AnimationOpts.My"></Animate>
+
+@* Especificar em método extensivo. *@
+<div style="@FadeIn.With(AnimationOpts.My)"></div>
+```
+
+
+## Como criar animações personalizadas
 
 Para criar uma animação personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
 herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:

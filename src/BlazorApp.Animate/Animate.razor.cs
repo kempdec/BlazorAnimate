@@ -1,5 +1,7 @@
 using BlazorApp.Animate.Extensions;
+using BlazorApp.Animate.Options;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Options;
 using static BlazorApp.Animate.Animation;
 
 namespace BlazorApp.Animate;
@@ -63,19 +65,46 @@ public partial class Animate
     public IFillMode? FillMode { get; init; }
 
     /// <summary>
+    /// Obtém ou inicializa as opções de animação.
+    /// </summary>
+    [Parameter]
+    public AnimationOptions? Options { get; init; }
+
+    /// <summary>
     /// Obtém ou inicializa a função de temporização que define como uma animação progride ao longo da duração de cada
     /// ciclo.
     /// </summary>
     [Parameter]
     public ITimingFunction? TimingFunction { get; init; }
 
+    /// <summary>
+    /// Obtém ou inicializa as opções de animação padrão.
+    /// </summary>
+    [Inject]
+    private IOptionsSnapshot<AnimationOptions>? DefaultOptions { get; init; }
+
     /// <inheritdoc/>
     protected override void OnParametersSet()
     {
-        TimeSpan? duration = Duration ?? DurationS.ToSecondsTimeSpan();
-        TimeSpan? delay = Delay ?? DelayS.ToSecondsTimeSpan();
+        TimeSpan? duration = Duration
+            ?? DurationS.ToSecondsTimeSpan()
+            ?? Options?.Duration
+            ?? DefaultOptions?.Value.Duration;
 
-        var animation = new MutantAnimation(Animation, duration, TimingFunction, delay, FillMode);
+        ITimingFunction? timingFunction = TimingFunction
+            ?? Options?.TimingFunction
+            ?? DefaultOptions?.Value.TimingFunction;
+
+        TimeSpan? delay = Delay
+            ?? DelayS.ToSecondsTimeSpan()
+            ?? Options?.Delay
+            ?? DefaultOptions?.Value.Delay;
+
+        IFillMode? fillMode = FillMode
+            ?? Options?.FillMode
+            ?? DefaultOptions?.Value.FillMode;
+
+        var animation = new MutantAnimation(Animation, duration, timingFunction, delay, fillMode);
 
         string? styles = AdditionalAttributes.GetValueOrDefault("style") as string;
 
