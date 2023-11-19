@@ -1,3 +1,4 @@
+using BlazorApp.Animate.Extensions;
 using Microsoft.AspNetCore.Components;
 using static BlazorApp.Animate.Animation;
 
@@ -71,11 +72,8 @@ public partial class Animate
     /// <inheritdoc/>
     protected override void OnParametersSet()
     {
-        TimeSpan? duration = Duration;
-        TimeSpan? delay = Delay;
-
-        duration ??= DurationS is double durationS ? TimeSpan.FromSeconds(durationS) : null;
-        delay ??= DelayS is double delayS ? TimeSpan.FromSeconds(delayS) : null;
+        TimeSpan? duration = Duration ?? DurationS.ToSecondsTimeSpan();
+        TimeSpan? delay = Delay ?? DelayS.ToSecondsTimeSpan();
 
         var animation = new MutantAnimation(Animation, duration, TimingFunction, delay, FillMode);
 
