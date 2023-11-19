@@ -3,15 +3,19 @@
 <PageTitle>BlazorApp Animate</PageTitle>
 
 <Animate Animation="SlideInRight">
-    <h1>Olá, mundo!</h1>
-
-    <p>
-        Bem-vindo ao seu novo aplicativo.
-    </p>
-
-    <Animate Delay="TimeSpan.FromSeconds(1)" style="font-weight: bold;">
-        <p>
-            Esse é um exemplo!
-        </p>
-    </Animate>
+    <h1>Animações</h1>
 </Animate>
+
+<p style="@SlideInRight">
+    Exemplo simples sem o uso do componente.
+</p>
+
+<Animate Animation="FadeInUp" Delay="TimeSpan.FromSeconds(1.0)" style="font-weight: bold;">
+    <p>
+        Exemplo com o componente.
+    </p>
+</Animate>
+
+<p style="@FadeInUp.With(delay: 1.0)">
+    Exemplo sem o uso do componente alterando as propriedades.
+</p>
