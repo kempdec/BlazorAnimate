@@ -15,6 +15,7 @@ O BlazorApp Animate é uma pequena biblioteca para adicionar facilmente animaç�
 - [Modos de preenchimento disponíveis](#modos-de-preenchimento-disponíveis)
 - [Configurando as opções padrão](#configurando-as-opções-padrões)
 - [Configurando opções pré-construídas](#configurando-opções-pré-construídas)
+- [Como criar animações mutantes](#como-criar-animações-mutantes)
 - [Como criar animações personalizadas](#como-criar-animações-personalizadas)
 - [Autores](#autores)
 - [Notas de lançamento](#notas-de-lançamento)
@@ -217,6 +218,27 @@ E então é possível utilizar da seguinte maneira:
 <div style="@FadeIn.With(AnimationOpts.My)"></div>
 ```
 
+## Como criar animações mutantes
+
+As animações mutantes servem para poder criar outras animações a partir de uma já existente, alterando somente as
+propriedades desejadas. Segue o exemplo:
+
+``` csharp
+_ = Animation.FadeIn.Name; // "fade-in".
+_ = Animation.FadeIn.Duration; // TimeSpan.FromSeconds(0.4).
+_ = Animation.FadeIn.TimingFunction; // TimingFunction.EaseInOut.
+_ = Animation.FadeIn.Delay; // TimeSpan.Zero.
+_ = Animation.FadeIn.FillMode; // FillMode.Both.
+
+// Criando uma nova animação, a partir da mutação de FadeIn.
+var newAnimation = new MutantAnimation(Animation.FadeIn, durationS: 1.0, delayS: 0.7);
+
+_ = newAnimation.FadeIn.Name; // "fade-in".
+_ = newAnimation.FadeIn.Duration; // TimeSpan.FromSeconds(1.0).
+_ = newAnimation.FadeIn.TimingFunction; // TimingFunction.EaseInOut.
+_ = newAnimation.FadeIn.Delay; // TimeSpan.FromSeconds(0.7).
+_ = newAnimation.FadeIn.FillMode; // FillMode.Both.
+```
 
 ## Como criar animações personalizadas
 
