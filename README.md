@@ -1,24 +1,24 @@
 # BlazorApp Animate
 
-O BlazorApp Animate È uma pequena biblioteca para adicionar facilmente animaÁıes em um aplicativo Blazor.
+O BlazorApp Animate √© uma pequena biblioteca para adicionar facilmente anima√ß√µes em um aplicativo Blazor.
 
-## Õndice
+## √çndice
 
-- [InstalaÁ„o](#instalaÁ„o)
-- [ImportaÁ„o](#importaÁ„o)
-- [AdiÁ„o de arquivo](#adiÁ„o-de-arquivo)
+- [Instala√ß√£o](#instala√ß√£o)
+- [Importa√ß√£o](#importa√ß√£o)
+- [Adi√ß√£o de arquivo](#adi√ß√£o-de-arquivo)
 - [Como usar](#como-usar)
   - [Componente Animate](#componente-animate)
-  - [MÈtodo extensivo](#mÈtodo-extensivo)
-- [AnimaÁıes disponÌveis](#animaÁıes-disponÌveis)
-- [FunÁıes de temporizaÁ„o disponÌveis](#funÁıes-de-temporizaÁ„o-disponÌveis)
-- [Modos de preenchimento disponÌveis](#modos-de-preenchimento-disponÌveis)
-- [Como criar animaÁıes personalizadas ou mut·veis](#como-criar-animaÁıes-personalizadas-ou-mut·veis)
+  - [M√©todo extensivo](#m√©todo-extensivo)
+- [Anima√ß√µes dispon√≠veis](#anima√ß√µes-dispon√≠veis)
+- [Fun√ß√µes de temporiza√ß√£o dispon√≠veis](#fun√ß√µes-de-temporiza√ß√£o-dispon√≠veis)
+- [Modos de preenchimento dispon√≠veis](#modos-de-preenchimento-dispon√≠veis)
+- [Como criar anima√ß√µes personalizadas ou mut√°veis](#como-criar-anima√ß√µes-personalizadas-ou-mut√°veis)
 - [Autores](#autores)
-- [Notas de lanÁamento](#notas-de-lanÁamento)
-- [LicenÁa](#licenÁa)
+- [Notas de lan√ßamento](#notas-de-lan√ßamento)
+- [Licen√ßa](#licen√ßa)
 
-## InstalaÁ„o
+## Instala√ß√£o
 
 Instale a biblioteca a partir do NuGet.
 
@@ -26,7 +26,7 @@ Instale a biblioteca a partir do NuGet.
 Install-Package BlazorApp.Animate
 ```
 
-## ImportaÁ„o
+## Importa√ß√£o
 
 Em seu arquivo `_Imports.razor` adicione:
 
@@ -37,7 +37,7 @@ Em seu arquivo `_Imports.razor` adicione:
 @using static BlazorApp.Animate.TimingFunction
 ```
 
-## AdiÁ„o de arquivo
+## Adi√ß√£o de arquivo
 
 Dentro da sua tag `<head>` adicione:
 
@@ -47,82 +47,82 @@ Dentro da sua tag `<head>` adicione:
 
 ## Como usar
 
-O BlazorApp Animate pode ser utilizado de duas maneiras, uma delas È com o componente `<Animate/>`, e a outra È atravÈs
+O BlazorApp Animate pode ser utilizado de duas maneiras, uma delas √© com o componente `<Animate/>`, e a outra √© atrav√©s
 do atributo `style` de qualquer tag HTML.
 
 ### Componente Animate
 
-Coloque o conte˙do que vocÍ deseja animar dentro do componente `<Animate>`, semelhante aos exemplos abaixo:
+Coloque o conte√∫do que voc√™ deseja animar dentro do componente `<Animate>`, semelhante aos exemplos abaixo:
 
 ``` razor
-@* Componente sem par‚metros, usando a animaÁ„o padr„o (FadeIn). *@
+@* Componente sem par√¢metros, usando a anima√ß√£o padr√£o (FadeIn). *@
 <Animate>
-    Texto que ser· animado.
+    Texto que ser√° animado.
 </Animate>
 
-@* Componente com o par‚metro Animation, que define a animaÁ„o. *@
+@* Componente com o par√¢metro Animation, que define a anima√ß√£o. *@
 <Animate Animation="FadeIn">
     <p>
-        Par·grafo que ser· animado.
+        Par√°grafo que ser√° animado.
     </p>
 </Animate>
 
-@* Componente com todos os par‚metros. Esses s„o os valores padrıes, quando n„o especificados. *@
+@* Componente com todos os par√¢metros. Esses s√£o os valores padr√µes, quando n√£o especificados. *@
 <Animate Animation="FadeIn" DurationS="0.4" TimingFunction="EaseInOut" DelayS="0.0" FillMode="Both">
     <p>
-        Par·grafo que ser· animado.
+        Par√°grafo que ser√° animado.
     </p>
 </Animate>
 
-@* Componente com todos os par‚metros (TimeSpan). Esses s„o os valores padrıes, quando n„o especificados. *@
+@* Componente com todos os par√¢metros (TimeSpan). Esses s√£o os valores padr√µes, quando n√£o especificados. *@
 <Animate Animation="FadeIn" Duration="TimeSpan.FromSeconds(0.4)" TimingFunction="EaseInOut" Delay="TimeSpan.FromSeconds(0.0)" FillMode="Both">
     <p>
-        Par·grafo que ser· animado.
+        Par√°grafo que ser√° animado.
     </p>
 </Animate>
 
-@* TambÈm È possÌvel adicionar qualquer atributo para Animate, como "class" e "style". *@
+@* Tamb√©m √© poss√≠vel adicionar qualquer atributo para Animate, como "class" e "style". *@
 <Animate class="example-class" style="font-weight: bold;">
     Texto animado em negrito.
 </Animate>
 ```
 
-### MÈtodo extensivo
+### M√©todo extensivo
 
-Os exemplos abaixo tem um resultado equivalente ao uso com o componente `<Animate/>`, ent„o escolha o que preferir.
-Coloque a animaÁ„o no atributo "style" de qualquer tag e use o mÈtodo extensivo `.With` para personalizar os par‚metros.
+Os exemplos abaixo tem um resultado equivalente ao uso com o componente `<Animate/>`, ent√£o escolha o que preferir.
+Coloque a anima√ß√£o no atributo "style" de qualquer tag e use o m√©todo extensivo `.With` para personalizar os par√¢metros.
 
 ``` razor
-@* Aplicando a animaÁ„o FadeIn em um elemento HTML. *@
+@* Aplicando a anima√ß√£o FadeIn em um elemento HTML. *@
 <div style="@FadeIn">
-    Texto que ser· animado.
+    Texto que ser√° animado.
 </div>
 
-@* AnimaÁ„o com todos os par‚metros personalizados. Esses s„o os valores padrıes, quando n„o especificados. *@
+@* Anima√ß√£o com todos os par√¢metros personalizados. Esses s√£o os valores padr√µes, quando n√£o especificados. *@
 <p style="@FadeIn.With(0.4, EaseInOut, 0.0, Both)">
-    Par·grafo que ser· animado.
+    Par√°grafo que ser√° animado.
 </p>
 
-@* AnimaÁ„o com todos os par‚metros personalizados, usando os par‚metros nomeados do C#. Esses s„o os valores padrıes,
-quando n„o especificados. *@
+@* Anima√ß√£o com todos os par√¢metros personalizados, usando os par√¢metros nomeados do C#. Esses s√£o os valores padr√µes,
+quando n√£o especificados. *@
 <p style="@FadeIn.With(durationS: 0.4, timingFunction: EaseInOut, delayS: 0.0, fillMode: Both)">
-    Par·grafo que ser· animado.
+    Par√°grafo que ser√° animado.
 </p>
 
-@* AnimaÁ„o com todos os par‚metros (TimeSpan). Esses s„o os valores padrıes, quando n„o especificados. *@
+@* Anima√ß√£o com todos os par√¢metros (TimeSpan). Esses s√£o os valores padr√µes, quando n√£o especificados. *@
 <p style="@FadeIn.With(TimeSpan.FromSeconds(0.4), EaseInOut, TimeSpan.FromSeconds(0.0), Both)">
-    Par·grafo que ser· animado.
+    Par√°grafo que ser√° animado.
 </p>
 
-@* TambÈm È possÌvel usar outras propriedades em "style". *@
+@* Tamb√©m √© poss√≠vel usar outras propriedades em "style". *@
 <div class="example-class" style="font-weight: bold; @FadeIn">
     Texto animado em negrito.
 </div>
 ```
 
-## AnimaÁıes disponÌveis
+## Anima√ß√µes dispon√≠veis
 
-As animaÁıes est„o prÈ-construÌdas em `BlazorApp.Animate.Animation`, sendo elas:
+As anima√ß√µes est√£o pr√©-constru√≠das em `BlazorApp.Animate.Animation`, sendo elas:
 
 - FadeIn
 - FadeInUp
@@ -135,9 +135,9 @@ As animaÁıes est„o prÈ-construÌdas em `BlazorApp.Animate.Animation`, sendo elas:
 - SlideInDown
 - SlideInLeft
 
-## FunÁıes de temporizaÁ„o disponÌveis
+## Fun√ß√µes de temporiza√ß√£o dispon√≠veis
 
-As funÁıes de temporizaÁ„o est„o prÈ-construÌdas em `BlazorApp.Animate.TimingFunction`, sendo elas:
+As fun√ß√µes de temporiza√ß√£o est√£o pr√©-constru√≠das em `BlazorApp.Animate.TimingFunction`, sendo elas:
 
 - Linear
 - Ease
@@ -145,29 +145,29 @@ As funÁıes de temporizaÁ„o est„o prÈ-construÌdas em `BlazorApp.Animate.TimingFun
 - EaseOut
 - EaseInOut
 
-> Obs.: TambÈm È possÌvel definir uma funÁ„o de temporizaÁ„o personalizada usando `CubicBezierTimingFunction`.
+> Obs.: Tamb√©m √© poss√≠vel definir uma fun√ß√£o de temporiza√ß√£o personalizada usando `CubicBezierTimingFunction`.
 > Exemplo:
 > ``` razor
 > <Animate TimingFunction="new CubicBezierTimingFunction(0.25, 0.1, 0.25, 1.0)"></Animate>
 > ```
 
-## Modos de preenchimento disponÌveis
+## Modos de preenchimento dispon√≠veis
 
-Os modos de preenchimento est„o prÈ-construÌdas em `BlazorApp.Animate.FillMode`, sendo eles:
+Os modos de preenchimento est√£o pr√©-constru√≠das em `BlazorApp.Animate.FillMode`, sendo eles:
 
 - None
 - Forwards
 - Backwards
 - Both
 
-## Como criar animaÁıes personalizadas ou mut·veis
+## Como criar anima√ß√µes personalizadas ou mut√°veis
 
-Para criar uma animaÁ„o personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
+Para criar uma anima√ß√£o personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
 herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
 
-**Adicione a animaÁ„o com keyframes em seu CSS**
+**Adicione a anima√ß√£o com keyframes em seu CSS**
 ``` css
-/* Essa animaÁ„o È apenas um exemplo. */
+/* Essa anima√ß√£o √© apenas um exemplo. */
 @keyframes simple-custom {
     0% {
         opacity: 0;
@@ -178,7 +178,7 @@ herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
     }
 }
 
-/* Essa animaÁ„o È apenas um exemplo. */
+/* Essa anima√ß√£o √© apenas um exemplo. */
 @keyframes custom {
     0% {
         opacity: 0;
@@ -190,9 +190,9 @@ herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
 }
 ```
 
-**Crie um tipo C# que implemente `IAnimation` especificando o nome da animaÁ„o criada com keyframes em seu CSS**
+**Crie um tipo C# que implemente `IAnimation` especificando o nome da anima√ß√£o criada com keyframes em seu CSS**
 ``` csharp
-// Construtor prim·rio com .NET 8/C# 12.
+// Construtor prim√°rio com .NET 8/C# 12.
 public sealed class SimpleCustomAnimation() : AnimationBase(name: "simple-custom")
 {
 }
@@ -205,13 +205,13 @@ public sealed class SimpleCustomAnimation : AnimationBase
     }
 }
 
-// Construtor prim·rio com .NET 8/C# 12, especificando todos os par‚metros.
+// Construtor prim√°rio com .NET 8/C# 12, especificando todos os par√¢metros.
 public sealed class CustomAnimation()
     : AnimationBase(name: "custom", duration: 0.4, timingFunction: EaseInOut, delay: 0.0, fillMode: Both)
 {
 }
 
-// Construtor comum, especificando todos os par‚metros.
+// Construtor comum, especificando todos os par√¢metros.
 public sealed class CustomAnimation : AnimationBase
 {
     public CustomAnimation()
@@ -221,7 +221,7 @@ public sealed class CustomAnimation : AnimationBase
 }
 ```
 
-E ent„o use de maneira semelhante ao exemplo abaixo:
+E ent√£o use de maneira semelhante ao exemplo abaixo:
 
 ``` razor
 @* Exemplo com componente. *@
@@ -229,7 +229,7 @@ E ent„o use de maneira semelhante ao exemplo abaixo:
     Texto a ser animado.
 </Animate>
 
-@* Exemplo com mÈtodo extensivo. *@
+@* Exemplo com m√©todo extensivo. *@
 <div style="@(new CustomAnimation())">
     Texto a ser animado.
 </div>
@@ -237,7 +237,7 @@ E ent„o use de maneira semelhante ao exemplo abaixo:
 
 ---
 
-Ou vocÍ pode definir uma classe est·tica com a inst‚ncia prÈ-construÌda:
+Ou voc√™ pode definir uma classe est√°tica com a inst√¢ncia pr√©-constru√≠da:
 
 ``` csharp
 public static MyCustomAnimations
@@ -246,13 +246,13 @@ public static MyCustomAnimations
 }
 ```
 
-Adicionar a importaÁ„o em `_Imports.razor`:
+Adicionar a importa√ß√£o em `_Imports.razor`:
 
 ``` razor
 @using static MyCustomAnimations
 ```
 
-E ent„o usar, de maneira semelhante a abaixo:
+E ent√£o usar, de maneira semelhante a abaixo:
 
 ``` razor
 @* Exemplo com componente. *@
@@ -260,7 +260,7 @@ E ent„o usar, de maneira semelhante a abaixo:
     Texto a ser animado.
 </Animate>
 
-@* Exemplo com mÈtodo extensivo. *@
+@* Exemplo com m√©todo extensivo. *@
 <div style="@Custom">
     Texto a ser animado.
 </div>
@@ -268,13 +268,13 @@ E ent„o usar, de maneira semelhante a abaixo:
 
 ## Autores
 
-- **[KempDec](https://github.com/kempdec)** - Mantedora do projeto de cÛdigo aberto.
-- **[VinÌcius Lima](https://github.com/viniciusxdl)** - Desenvolvedor .NET C#.
+- **[KempDec](https://github.com/kempdec)** - Mantedora do projeto de c√≥digo aberto.
+- **[Vin√≠cius Lima](https://github.com/viniciusxdl)** - Desenvolvedor .NET C#.
 
-## Notas de lanÁamento
+## Notas de lan√ßamento
 
-Para notas de lanÁamento, confira a [seÁ„o de releases do BlazorApp Animate](https://github.com/kempdec/BlazorApp.Animate/releases).
+Para notas de lan√ßamento, confira a [se√ß√£o de releases do BlazorApp Animate](https://github.com/kempdec/BlazorApp.Animate/releases).
 
-## LicenÁa
+## Licen√ßa
 
 [MIT](https://github.com/kempdec/BlazorApp.Animate/blob/main/LICENSE)
