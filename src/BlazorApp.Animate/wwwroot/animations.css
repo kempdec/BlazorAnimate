@@ -78,7 +78,7 @@
     }
 }
 
-@keyframes fade-in-down {
+@keyframes slide-in-down {
     0% {
         transform: translateY(-100%);
     }
@@ -88,7 +88,7 @@
     }
 }
 
-@keyframes fade-in-left {
+@keyframes slide-in-left {
     0% {
         transform: translateX(100%);
     }
