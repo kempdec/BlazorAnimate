@@ -17,6 +17,8 @@
     <Product>BlazorApp Animate</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0-rc.2</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>..\..\published</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +27,10 @@
 
   <ItemGroup>
     <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
