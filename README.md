@@ -247,9 +247,6 @@ _ = newAnimation.FadeIn.FillMode; // FillMode.Both.
 
 ## Como criar animações personalizadas
 
-Para criar uma animação personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
-herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
-
 **Adicione a animação com keyframes em seu CSS**
 ``` css
 /* Essa animação é apenas um exemplo. */
@@ -274,6 +271,9 @@ herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
     }
 }
 ```
+
+Para criar uma animação personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
+herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
 
 **Crie um tipo C# que implemente `IAnimation` especificando o nome da animação criada com keyframes em seu CSS**
 ``` csharp
