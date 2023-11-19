@@ -13,7 +13,7 @@ O BlazorApp Animate é uma biblioteca que pode ser usada para adicionar facilmen
 - [Animações disponíveis](#animações-disponíveis)
 - [Funções de temporização disponíveis](#funções-de-temporização-disponíveis)
 - [Modos de preenchimento disponíveis](#modos-de-preenchimento-disponíveis)
-- [Configurando as opções padrão](#configurando-as-opções-padrões)
+- [Configurando as opções padrão](#configurando-as-opções-padrão)
 - [Configurando opções pré-construídas](#configurando-opções-pré-construídas)
 - [Como criar animações mutantes](#como-criar-animações-mutantes)
 - [Como criar animações personalizadas](#como-criar-animações-personalizadas)
