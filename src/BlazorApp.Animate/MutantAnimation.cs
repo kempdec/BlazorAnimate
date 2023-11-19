@@ -18,4 +18,9 @@ public sealed class MutantAnimation(IAnimation animation, TimeSpan? duration = n
         : AnimationBase(animation.Name, duration ?? animation.Duration, timingFunction ?? animation.TimingFunction,
             delay ?? animation.Delay, fillMode ?? animation.FillMode)
 {
+    /// <summary>
+    /// Retorna a representação da animação mutante em uma cadeia de caracteres.
+    /// </summary>
+    /// <param name="mutantAnimation">A animação mutante.</param>
+    public static implicit operator string(MutantAnimation mutantAnimation) => mutantAnimation.ToString();
 }
