@@ -8,11 +8,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Animate", "src\BlazorApp.Animate\BlazorApp.Animate.csproj", "{189BCD00-5D74-463B-BA58-169B02C1F700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Animate.Sample", "samples\BlazorApp.Animate.Sample\BlazorApp.Animate.Sample.csproj", "{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Animate.Sample", "samples\BlazorApp.Animate.Sample\BlazorApp.Animate.Sample.csproj", "{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
