@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Company>KempDec Brasil Ltda.</Company>
     <Authors>KempDec</Authors>
-    <Description>O BlazorApp Animate é uma pequena biblioteca para adicionar facilmente animações em um aplicativo Blazor.</Description>
+    <Description>O BlazorApp Animate é uma biblioteca que pode ser usada para adicionar facilmente animações em um aplicativo Blazor.</Description>
     <Copyright>2023 © KempDec Brasil Ltda.</Copyright>
     <PackageProjectUrl>https://github.com/kempdec/BlazorApp.Animate</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>

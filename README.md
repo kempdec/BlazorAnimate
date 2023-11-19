@@ -1,6 +1,6 @@
 # BlazorApp Animate
 
-O BlazorApp Animate é uma pequena biblioteca para adicionar facilmente animações em um aplicativo Blazor.
+O BlazorApp Animate é uma biblioteca que pode ser usada para adicionar facilmente animações em um aplicativo Blazor.
 
 ## Índice
 
@@ -70,14 +70,14 @@ Coloque o conteúdo que você deseja animar dentro do componente `<Animate>`, se
     </p>
 </Animate>
 
-@* Componente com todos os parâmetros. Esses são os valores padrões, quando não especificados. *@
+@* Componente com todos os parâmetros de animação. Esses são os valores padrões, quando não especificados. *@
 <Animate Animation="FadeIn" DurationS="0.4" TimingFunction="EaseInOut" DelayS="0.0" FillMode="Both">
     <p>
         Parágrafo que será animado.
     </p>
 </Animate>
 
-@* Componente com todos os parâmetros (TimeSpan). Esses são os valores padrões, quando não especificados. *@
+@* Componente com todos os parâmetros de animação (TimeSpan). Esses são os valores padrões, quando não especificados. *@
 <Animate Animation="FadeIn" Duration="TimeSpan.FromSeconds(0.4)" TimingFunction="EaseInOut" Delay="TimeSpan.Zero" FillMode="Both">
     <p>
         Parágrafo que será animado.
