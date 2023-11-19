@@ -59,20 +59,28 @@ public abstract class AnimationBase : IAnimation
         FillMode = fillMode;
     }
 
+    /// <inheritdoc/>
     public string Name { get; }
 
+    /// <inheritdoc/>
     public TimeSpan Duration { get; }
 
+    /// <inheritdoc/>
     public ITimingFunction TimingFunction { get; }
 
+    /// <inheritdoc/>
     public IFillMode FillMode { get; }
 
+    /// <inheritdoc/>
     public TimeSpan Delay { get; }
 
+    /// <inheritdoc/>
     public bool IsDefault { get; }
 
+    /// <inheritdoc/>
     public override string ToString() => GetStyle();
 
+    /// <inheritdoc/>
     public string GetStyle()
     {
         var styleBuilder = new StringBuilder();

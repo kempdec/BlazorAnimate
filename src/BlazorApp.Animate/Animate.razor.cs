@@ -68,6 +68,7 @@ public partial class Animate
     [Parameter]
     public ITimingFunction? TimingFunction { get; init; }
 
+    /// <inheritdoc/>
     protected override void OnParametersSet()
     {
         TimeSpan? duration = Duration;

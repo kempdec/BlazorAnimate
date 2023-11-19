@@ -6,5 +6,6 @@
 /// </summary>
 public sealed class ForwardsFillMode : IFillMode
 {
+    /// <inheritdoc/>
     public string Value { get; } = "forwards";
 }

@@ -6,5 +6,6 @@
 /// </summary>
 public sealed class BothFillMode : IFillMode
 {
+    /// <inheritdoc/>
     public string Value { get; } = "both";
 }

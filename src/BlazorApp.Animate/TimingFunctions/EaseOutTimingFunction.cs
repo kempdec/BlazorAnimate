@@ -7,5 +7,6 @@
 /// <remarks>É equivalente a cubic-bezier(0.0, 0.0, 0.58, 1.0).</remarks>
 public sealed class EaseOutTimingFunction : ITimingFunction
 {
+    /// <inheritdoc/>
     public string Value { get; } = "ease-out";
 }

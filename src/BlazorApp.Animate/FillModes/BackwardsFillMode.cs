@@ -6,5 +6,6 @@
 /// </summary>
 public sealed class BackwardsFillMode : IFillMode
 {
+    /// <inheritdoc/>
     public string Value { get; } = "backwards";
 }

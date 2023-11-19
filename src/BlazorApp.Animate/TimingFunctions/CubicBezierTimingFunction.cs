@@ -52,5 +52,6 @@ public class CubicBezierTimingFunction : ITimingFunction
     /// </summary>
     private const string PointOutOfRangeMessage = "O valor deve estar entre 0.0 e 1.0.";
 
+    /// <inheritdoc/>
     public string Value { get; }
 }

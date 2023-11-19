@@ -6,5 +6,6 @@
 /// </summary>
 public sealed class NoneFillMode : IFillMode
 {
+    /// <inheritdoc/>
     public string Value { get; } = "none";
 }
