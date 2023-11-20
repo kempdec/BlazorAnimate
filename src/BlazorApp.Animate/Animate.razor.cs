@@ -28,8 +28,9 @@ public partial class Animate
     /// <summary>
     /// Obtém ou inicializa o atraso para acionar o evento de <see cref="AfterAnimate"/>.
     /// </summary>
+    /// <remarks>O valor padrão é um <see cref="TimeSpan"/> com 0.2 segundos.</remarks>
     [Parameter]
-    public TimeSpan? AfterAnimateDelay { get; init; }
+    public TimeSpan AfterAnimateDelay { get; init; } = TimeSpan.FromSeconds(0.2);
 
     /// <summary>
     /// Obtém ou define um sinalizador indicando se a animação deve ser executada somente depois da pré-renderização.
