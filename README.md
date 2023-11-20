@@ -89,6 +89,11 @@ Coloque o conteúdo que você deseja animar dentro do componente `<Animate>`, se
     Texto animado em negrito.
 </Animate>
 
+@* Execute uma ação após a animação ser concluída. *@
+<Animate AfterAnimate="firstRender => {}" AfterAnimateDelay="TimeSpan.FromSeconds(0.2)">
+    Texto animado com uma ação após ela ser concluída.
+</Animate>
+
 @* É possível definir que a animação seja executada somente após a pré-renderização. *@
 <Animate AfterPreRenderOnly="true">
     Texto animado que aparecerá somente após a pré-renderização.

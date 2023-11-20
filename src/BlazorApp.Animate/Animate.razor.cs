@@ -19,6 +19,19 @@ public partial class Animate
     public Dictionary<string, object> AdditionalAttributes { get; init; } = [];
 
     /// <summary>
+    /// Obtém ou inicializa um delegate manipulador de eventos para depois de animar o componente, contendo um
+    /// sinalizador indicando se é a primeira renderização.
+    /// </summary>
+    [Parameter]
+    public EventCallback<bool> AfterAnimate { get; init; }
+
+    /// <summary>
+    /// Obtém ou inicializa o atraso para acionar o evento de <see cref="AfterAnimate"/>.
+    /// </summary>
+    [Parameter]
+    public TimeSpan? AfterAnimateDelay { get; init; }
+
+    /// <summary>
     /// Obtém ou define um sinalizador indicando se a animação deve ser executada somente depois da pré-renderização.
     /// O valor padrão é <see langword="false"/>.
     /// </summary>
@@ -92,6 +105,16 @@ public partial class Animate
     [Inject]
     private IOptionsSnapshot<AnimationOptions>? DefaultOptions { get; init; }
 
+    /// <summary>
+    /// O atraso para iniciar a animação.
+    /// </summary>
+    private TimeSpan? _delay;
+
+    /// <summary>
+    /// A duração da animação.
+    /// </summary>
+    private TimeSpan? _duration;
+
     /// <inheritdoc/>
     protected override void OnParametersSet()
     {
@@ -106,10 +129,15 @@ public partial class Animate
     }
 
     /// <inheritdoc/>
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!AfterPreRenderOnly)
         {
+            if (firstRender)
+            {
+                await OnAfterAnimateAsync(firstRender);
+            }
+
             return;
         }
 
@@ -117,12 +145,27 @@ public partial class Animate
 
         SetAnimationStyle();
         StateHasChanged();
+
+        await OnAfterAnimateAsync(firstRender);
     }
 
     /// <summary>
     /// Obtém uma coleção de propriedades de estilo CSS do componente.
     /// </summary>
     private StyleDictionary GetStyles() => new(AdditionalAttributes.GetValueOrDefault("style"));
+
+    /// <summary>
+    /// Aciona o evento de <see cref="AfterAnimate"/>.
+    /// </summary>
+    /// <param name="firstRender">Um sinalizador indicando se é a primeira renderização.</param>
+    /// <returns>A <see cref="Task"/> que representa a operação assíncrona.</returns>
+    private async Task OnAfterAnimateAsync(bool firstRender)
+    {
+        TimeSpan delay = (_duration + _delay + AfterAnimateDelay) ?? TimeSpan.Zero;
+
+        await Task.Delay(delay);
+        await AfterAnimate.InvokeAsync(firstRender);
+    }
 
     /// <summary>
     /// Remove o estilo CSS no atributo "style" do componente.
@@ -166,6 +209,9 @@ public partial class Animate
             ?? DefaultOptions?.Value.FillMode;
 
         var animation = new MutantAnimation(Animation, duration, timingFunction, delay, fillMode);
+
+        _delay = animation.Delay;
+        _duration = animation.Duration;
 
         SetStyles(animation.GetStyles());
     }
