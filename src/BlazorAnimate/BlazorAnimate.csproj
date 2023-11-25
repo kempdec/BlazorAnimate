@@ -16,7 +16,7 @@
     <Title>BlazorAnimate</Title>
     <Product>BlazorAnimate</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.0-rc.7</Version>
+    <Version>1.0.0-rc.8</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageOutputPath>..\..\published</PackageOutputPath>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
