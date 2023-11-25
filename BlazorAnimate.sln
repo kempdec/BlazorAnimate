@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{4DB4B106-AC55-49A4-9665-F0280A2772B3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAnimate", "src\BlazorAnimate\BlazorAnimate.csproj", "{189BCD00-5D74-463B-BA58-169B02C1F700}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAnimate.Sample", "samples\BlazorAnimate.Sample\BlazorAnimate.Sample.csproj", "{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189BCD00-5D74-463B-BA58-169B02C1F700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E823B4B-370E-4AFE-B4D1-5FE409EF07D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {656E87E0-F54A-4130-8CEB-0ED93E35F2EF}
+	EndGlobalSection
+EndGlobal

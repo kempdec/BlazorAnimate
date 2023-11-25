@@ -1,6 +1,6 @@
-# BlazorApp Animate
+# BlazorAnimate
 
-O BlazorApp Animate é uma biblioteca que pode ser usada para adicionar facilmente animações em um aplicativo Blazor.
+O BlazorAnimate é uma biblioteca que pode ser usada para adicionar facilmente animações em um aplicativo Blazor.
 
 ## Índice
 
@@ -26,7 +26,7 @@ O BlazorApp Animate é uma biblioteca que pode ser usada para adicionar facilmen
 Instale a biblioteca a partir do NuGet.
 
 ``` powershell
-Install-Package BlazorApp.Animate
+Install-Package KempDec.BlazorAnimate
 ```
 
 ## Importação
@@ -34,10 +34,10 @@ Install-Package BlazorApp.Animate
 Em seu arquivo `_Imports.razor` adicione:
 
 ``` razor
-@using BlazorApp.Animate
-@using static BlazorApp.Animate.Animation
-@using static BlazorApp.Animate.FillMode
-@using static BlazorApp.Animate.TimingFunction
+@using KempDec.BlazorAnimate
+@using static KempDec.BlazorAnimate.Animation
+@using static KempDec.BlazorAnimate.FillMode
+@using static KempDec.BlazorAnimate.TimingFunction
 ```
 
 ## Adição de arquivo
@@ -45,12 +45,12 @@ Em seu arquivo `_Imports.razor` adicione:
 Dentro da sua tag `<head>` adicione:
 
 ``` html
-<link rel="stylesheet" href="_content/BlazorApp.Animate/animations.min.css">
+<link rel="stylesheet" href="_content/KempDec.BlazorAnimate/animations.min.css">
 ```
 
 ## Como usar
 
-O BlazorApp Animate pode ser utilizado de duas maneiras, uma delas é com o componente `<Animate/>`, e a outra é através
+O BlazorAnimate pode ser utilizado de duas maneiras, uma delas é com o componente `<Animate/>`, e a outra é através
 do atributo `style` de qualquer tag HTML.
 
 ### Componente Animate
@@ -135,7 +135,7 @@ quando não especificados. *@
 
 ## Animações disponíveis
 
-As animações estão pré-construídas em `BlazorApp.Animate.Animation`, sendo elas:
+As animações estão pré-construídas em `KempDec.BlazorAnimate.Animation`, sendo elas:
 
 - FadeIn
 - FadeInUp
@@ -150,7 +150,7 @@ As animações estão pré-construídas em `BlazorApp.Animate.Animation`, sendo 
 
 ## Funções de temporização disponíveis
 
-As funções de temporização estão pré-construídas em `BlazorApp.Animate.TimingFunction`, sendo elas:
+As funções de temporização estão pré-construídas em `KempDec.BlazorAnimate.TimingFunction`, sendo elas:
 
 - Linear
 - Ease
@@ -166,7 +166,7 @@ As funções de temporização estão pré-construídas em `BlazorApp.Animate.Ti
 
 ## Modos de preenchimento disponíveis
 
-Os modos de preenchimento estão pré-construídas em `BlazorApp.Animate.FillMode`, sendo eles:
+Os modos de preenchimento estão pré-construídas em `KempDec.BlazorAnimate.FillMode`, sendo eles:
 
 - None
 - Forwards
@@ -277,8 +277,8 @@ _ = newAnimation.FadeIn.FillMode; // FillMode.Both.
 }
 ```
 
-Para criar uma animação personalizada deve implementar `BlazorApp.Animate.IAnimation`, recomendamos fortemente que
-herde `BlazorApp.Animate.AnimationBase`. Segue um exemplo:
+Para criar uma animação personalizada deve implementar `KempDec.BlazorAnimate.IAnimation`, recomendamos fortemente que
+herde `KempDec.BlazorAnimate.AnimationBase`. Segue um exemplo:
 
 **Crie um tipo C# que implemente `IAnimation` especificando o nome da animação criada com keyframes em seu CSS**
 ``` csharp
@@ -363,8 +363,8 @@ E então usar, de maneira semelhante a abaixo:
 
 ## Notas de lançamento
 
-Para notas de lançamento, confira a [seção de releases do BlazorApp Animate](https://github.com/kempdec/BlazorApp.Animate/releases).
+Para notas de lançamento, confira a [seção de releases do BlazorAnimate](https://github.com/kempdec/KempDec.BlazorAnimate/releases).
 
 ## Licença
 
-[MIT](https://github.com/kempdec/BlazorApp.Animate/blob/main/LICENSE)
+[MIT](https://github.com/kempdec/KempDec.BlazorAnimate/blob/main/LICENSE)

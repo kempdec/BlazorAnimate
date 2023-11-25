@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Company>KempDec Brasil Ltda.</Company>
+    <Authors>KempDec</Authors>
+    <Description>O BlazorAnimate é uma biblioteca que pode ser usada para adicionar facilmente animações em um aplicativo Blazor.</Description>
+    <Copyright>2023 © KempDec Brasil Ltda.</Copyright>
+    <PackageProjectUrl>https://github.com/kempdec/BlazorAnimate</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/kempdec/BlazorAnimate</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>blazor;animate;animations;components</PackageTags>
+    <Title>BlazorAnimate</Title>
+    <Product>BlazorAnimate</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.0-rc.7</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>..\..\published</PackageOutputPath>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AssemblyName>KempDec.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>KempDec.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\animations.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
