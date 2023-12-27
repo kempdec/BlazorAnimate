@@ -230,7 +230,7 @@ public partial class Animate
             currentStyles.Set(style.Key, style.Value);
         }
 
-        AdditionalAttributes["style"] = styles.ToString();
+        AdditionalAttributes["style"] = currentStyles.ToString();
     }
 
     /// <summary>
