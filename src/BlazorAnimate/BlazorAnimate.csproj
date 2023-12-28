@@ -15,13 +15,13 @@
     <PackageTags>blazor;animate;animations;components</PackageTags>
     <Title>BlazorAnimate</Title>
     <Product>BlazorAnimate</Product>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0-rc.9</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageOutputPath>..\..\published</PackageOutputPath>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyName>KempDec.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>KempDec.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +30,10 @@
 
   <ItemGroup>
     <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
